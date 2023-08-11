@@ -1,6 +1,16 @@
-/* eslint-disable prettier/prettier */
+import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage } from "../styles/loginscreen.styles";
+
 const LoginScreen = () => {
-    return <div>teste</div>;
+    return (
+        <div>
+            <BackgroundImage src="./wallpaper01.jpg" />
+            <ContainerLogin>
+                <LimitedContainer>
+                    <LogoImage src="./logo.svg" />
+                </LimitedContainer>
+            </ContainerLogin>
+        </div>
+    );
 };
 
 export default LoginScreen;
