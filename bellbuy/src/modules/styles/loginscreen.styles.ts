@@ -7,7 +7,7 @@ export const ContainerLoginScreen = styled.div`
 `;
 
 export const BackgroundImage = styled.img`
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -18,18 +18,22 @@ export const BackgroundImage = styled.img`
 
 export const LogoImage = styled.img`
 width: 345px;
+justify-content: center;
+margin-bottom: 15px;
 `;
 
 export const ContainerLogin = styled.div`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
   padding: 22px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   max-width: 646px;
-  box-shadow: 4px 0px 15px 1px #6b6b6b;
+  box-shadow: 4px 0px 15px 1px #CCC;
+  
 `;
 
 export const LimitedContainer = styled.div`
@@ -37,6 +41,8 @@ export const LimitedContainer = styled.div`
   max-width: 498px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 
