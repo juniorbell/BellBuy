@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const BoxInput = styled.div`
-width: 100%
+width: 43px;
 `;
 
 
@@ -11,10 +11,9 @@ export const TitleInput = styled.h3`
   font-size: 54px;
   line-height: 21px;
   margin: 8px;
+color: #15c93b;
 `;
 
 export const InputAntd = styled.div`
-cursor: pointer;
-color: blue;
-border-color: #15c93b;
+
 `;

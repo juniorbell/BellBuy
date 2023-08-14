@@ -19,7 +19,9 @@ export const BackgroundImage = styled.img`
 export const LogoImage = styled.img`
 width: 345px;
 justify-content: center;
+text-align: center;
 margin-bottom: 15px;
+padding-left: 88px;
 `;
 
 export const ContainerLogin = styled.div`
@@ -40,9 +42,23 @@ export const LimitedContainer = styled.div`
   width: 100%;
   max-width: 498px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+`;
+export const Text = styled.div`
+color: #006837;
+font-style: normal;
+font-size: 1.2rem;
+line-height: 21px;
+margin: 8px;
+justify-content: left
+align-items: left;     
+font-family: MV Boli;
+`;
+
+export const Input = styled.div`
+border-color: red;
+color: red;
 `;
 
 
