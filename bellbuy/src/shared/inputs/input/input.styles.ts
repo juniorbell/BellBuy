@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const BoxInput = styled.div`
-width: 43px;
+width: 100%;
 `;
 
 
@@ -11,7 +11,8 @@ export const TitleInput = styled.h3`
   font-size: 54px;
   line-height: 21px;
   margin: 8px;
-color: #15c93b;
+  color: #15c93b;
+  text-aligm: start;
 `;
 
 export const InputAntd = styled.div`
