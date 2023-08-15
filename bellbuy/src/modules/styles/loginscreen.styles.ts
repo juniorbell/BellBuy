@@ -41,6 +41,8 @@ export const ContainerLogin = styled.div`
   height: 100%;
   max-width: 646px;
   box-shadow: 4px 0px 15px 1px #CCC;
+  border-radius: 0px 45px 0px 0px;
+
   
 `;
 
@@ -58,8 +60,9 @@ font-size: 1.2rem;
 line-height: 21px;
 margin: 8px;
 justify-content: left
-align-items: left;     
+align-items: start;     
 font-family: MV Boli;
+
 `;
 
 

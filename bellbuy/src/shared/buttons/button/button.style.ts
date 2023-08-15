@@ -3,6 +3,13 @@ import { Button } from "antd";
 import styled from "styled-components";
 
 export const ButtonAntd = styled(Button)`
-    margin: 15px;
+    border-radius: 45px;
     width: 100%;
+    color: white;
+    background-color: #006837 ;
+    box-shadow: none!important;
+
+
+
+
 `;
