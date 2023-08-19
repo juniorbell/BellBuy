@@ -1,4 +1,4 @@
 /* eslint-disable prettier/prettier */
-import LoginScreen from './screens/LoginScreen';
+import LoginScreen from './login/screens/LoginScreen';
 
 export default LoginScreen;

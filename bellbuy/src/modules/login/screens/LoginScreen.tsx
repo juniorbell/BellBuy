@@ -2,13 +2,15 @@ import { Input } from "antd";
 import axios from "axios";
 
 import { useState } from "react";
-import Button from "../../shared/buttons/button/Button";
-import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage, Text, TitleLogin } from "../styles/loginscreen.styles";
+import Button from "../../../shared/components/buttons/button/Button";
+import { useRequest } from "../../../shared/hooks/useRequest";
+import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage, Text, TitleLogin } from "../../styles/loginscreen.styles";
 
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { postRequest, loading } = useRequest();
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
@@ -17,6 +19,10 @@ const LoginScreen = () => {
         setPassword(event.target.value);
     }
     const handleLogin = async () => {
+        postRequest('http://localhost:8080/auth', {
+            email: email,
+            password: password,
+        })
         await axios({
             method: 'post',
             url: 'http://localhost:8080/auth',
@@ -45,7 +51,7 @@ const LoginScreen = () => {
                     <Input placeholder="Insira  usuario " onChange={handleEmail} value={email} />
                     <Text> Senha:</Text>
                     <Input type="password" placeholder="Insira a senha" onChange={handlePassword} value={password} />
-                    <Button type="primary" margin="64px 0px 16px 0px" onClick={handleLogin}>
+                    <Button loading={loading} type="primary" margin="64px 0px 16px 0px" onClick={handleLogin}>
                         ENTRAR
                     </Button>
                 </LimitedContainer>
