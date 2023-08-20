@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import './main.css';
 import { LoginRoutes } from "./modules/routes";
+import { GlobalProvider } from "./shared/hooks/useGlobalContext";
 const mainRoutes: RouteObject[] = [
   {
     path: '/',
@@ -18,10 +19,12 @@ const mainRoutes: RouteObject[] = [
 ]
 
 
-const router: RemixRouter = createBrowserRouter([...mainRoutes, ...LoginRoutes]);
+const router: RemixRouter = createBrowserRouter([...mainRoutes, ...LoginRoutes,]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GlobalProvider>
+      <RouterProvider router={router} />
+    </GlobalProvider>
   </React.StrictMode>,
 );

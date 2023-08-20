@@ -1,16 +1,16 @@
 import { Input } from "antd";
-import axios from "axios";
 
 import { useState } from "react";
 import Button from "../../../shared/components/buttons/button/Button";
-import { useRequest } from "../../../shared/hooks/useRequest";
+import { useGlobalContext } from "../../../shared/hooks/useGlobalContext";
+import { useRequests } from "../../../shared/hooks/useRequest";
 import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage, Text, TitleLogin } from "../../styles/loginscreen.styles";
 
-
 const LoginScreen = () => {
+    const { accessToken, setAccessToken } = useGlobalContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { postRequest, loading } = useRequest();
+    const { postRequest, loading } = useRequests();
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
@@ -18,27 +18,14 @@ const LoginScreen = () => {
     const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
     }
-    const handleLogin = async () => {
+    const handleLogin = () => {
+        setAccessToken('Novo Token');
         postRequest('http://localhost:8080/auth', {
             email: email,
             password: password,
-        })
-        await axios({
-            method: 'post',
-            url: 'http://localhost:8080/auth',
-            data: {
-                email: email,
-                password: password,
-            },
-        }).then((result) => {
-            alert(`Acesso Permitido ${result.data.accessToken}`);
-            return result.data;
-        })
-            .catch(() => {
-                alert('Usuário ou senha iválido')
-            })
+        });
 
-    }
+    };
 
     return (
         <div>
@@ -46,7 +33,7 @@ const LoginScreen = () => {
             <ContainerLogin>
                 <LimitedContainer>
                     <LogoImage src="./logo2.png" />
-                    <TitleLogin level={2} type="success">LOGIN</TitleLogin>
+                    <TitleLogin level={2} type="success">LOGIN ({accessToken}) </TitleLogin>
                     <Text> Usuário:</Text>
                     <Input placeholder="Insira  usuario " onChange={handleEmail} value={email} />
                     <Text> Senha:</Text>
