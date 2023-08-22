@@ -29,7 +29,7 @@ const LoginScreen = () => {
 
     return (
         <div>
-            <BackgroundImage src="./wallpaper01a.jpg" />
+            <BackgroundImage />
             <ContainerLogin>
                 <LimitedContainer>
                     <LogoImage src="./logo2.png" />

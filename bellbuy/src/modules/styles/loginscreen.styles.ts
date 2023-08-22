@@ -17,7 +17,7 @@ export const BackgroundImage = styled.img`
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-`;
+  background: linear-gradient(50deg, rgba(255,255,255,1) 0%, rgba(0,104,55,1) 100%);`;
 
 export const LogoImage = styled.img`
 width: 345px;
@@ -40,7 +40,7 @@ export const ContainerLogin = styled.div`
   width: 100%;
   height: 100%;
   max-width: 646px;
-  box-shadow: 4px 0px 15px 1px #CCC;
+  box-shadow: 4px 0px 20px 1px #121212;
   border-radius: 0px 45px 0px 0px;
 
   
