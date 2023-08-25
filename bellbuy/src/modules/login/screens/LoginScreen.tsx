@@ -5,6 +5,7 @@ import Button from "../../../shared/components/buttons/button/Button";
 import { useGlobalContext } from "../../../shared/hooks/useGlobalContext";
 import { useRequests } from "../../../shared/hooks/useRequest";
 import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage, Text, TitleLogin } from "../../styles/loginscreen.styles";
+import { UserType } from "../types/userType";
 
 const LoginScreen = () => {
     const { accessToken, setAccessToken } = useGlobalContext();
@@ -18,12 +19,13 @@ const LoginScreen = () => {
     const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
     }
-    const handleLogin = () => {
-        setAccessToken('Novo Token');
-        postRequest('http://localhost:8080/auth', {
+    const handleLogin = async () => {
+        const user = await postRequest<UserType>('http://localhost:8080/auth', {
             email: email,
             password: password,
         });
+        setAccessToken(user?.accessToken || '');
+
 
     };
 
