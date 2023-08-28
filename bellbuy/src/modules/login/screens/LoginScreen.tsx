@@ -2,16 +2,13 @@ import { Input } from "antd";
 
 import { useState } from "react";
 import Button from "../../../shared/components/buttons/button/Button";
-import { useGlobalContext } from "../../../shared/hooks/useGlobalContext";
 import { useRequests } from "../../../shared/hooks/useRequest";
 import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage, Text, TitleLogin } from "../../styles/loginscreen.styles";
-import { UserType } from "../types/userType";
 
 const LoginScreen = () => {
-    const { accessToken } = useGlobalContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { postRequest, loading } = useRequests();
+    const { authRequest, loading } = useRequests();
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
@@ -20,7 +17,7 @@ const LoginScreen = () => {
         setPassword(event.target.value);
     }
     const handleLogin = () => {
-        postRequest<UserType>('http://localhost:8080/auth', {
+        authRequest({
             email: email,
             password: password,
         });
