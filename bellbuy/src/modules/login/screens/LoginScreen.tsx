@@ -8,7 +8,7 @@ import { BackgroundImage, ContainerLogin, LimitedContainer, LogoImage, Text, Tit
 import { UserType } from "../types/userType";
 
 const LoginScreen = () => {
-    const { accessToken, setAccessToken } = useGlobalContext();
+    const { accessToken } = useGlobalContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { postRequest, loading } = useRequests();
@@ -19,14 +19,11 @@ const LoginScreen = () => {
     const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
     }
-    const handleLogin = async () => {
-        const user = await postRequest<UserType>('http://localhost:8080/auth', {
+    const handleLogin = () => {
+        postRequest<UserType>('http://localhost:8080/auth', {
             email: email,
             password: password,
         });
-        setAccessToken(user?.accessToken || '');
-
-
     };
 
     return (
@@ -35,7 +32,7 @@ const LoginScreen = () => {
             <ContainerLogin>
                 <LimitedContainer>
                     <LogoImage src="./logo2.png" />
-                    <TitleLogin level={2} type="success">LOGIN ({accessToken}) </TitleLogin>
+                    <TitleLogin level={2} type="success">LOGIN</TitleLogin>
                     <Text> Usuário:</Text>
                     <Input placeholder="Insira  usuario " onChange={handleEmail} value={email} />
                     <Text> Senha:</Text>
